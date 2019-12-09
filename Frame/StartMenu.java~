@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.*;
+import javax.imageio.*;
+import java.util.*;
+import java.io.*;
+import java.awt.geom.*;
+
+
+public class StartMenu implements Button_Specifications{
+		Rectangle Start;
+		Rectangle Help;
+		Rectangle Quit;
+		BufferedImage bf,bf2;
+		//public Button_specifications B;
+		public Color Trans = new Color(255,255,255,60);
+
+		Color C = new Color(0,255,0,100);
+		public StartMenu(){	
+			Start = new Rectangle(0,start_y+40,800,50);
+			Help = new Rectangle(0,help_y+40,800,50);
+			Quit = new Rectangle(0,quit_y+40,800,50);
+			try{
+				bf2 = ImageIO.read(new File("//exports//AG1//AG1//saved_image.jpg"));
+			}catch(Exception E){E.printStackTrace();}
+		}
+		public void render(Graphics G){
+			Graphics2D g = (Graphics2D)G;
+			//g.drawImage(StartImage,0,0,800,600,null);	
+			Font fnt = new Font("ariel",Font.BOLD,25);
+			g.setFont(fnt);
+			g.setColor(Trans);
+			g.fill(Start);
+			g.fill(Help);
+			g.fill(Quit);
+
+			G.drawImage(bf2,0,0,screen_width,screen_height,null);
+
+			g.setColor(Color.WHITE);
+			g.drawString("Help",start_x+80,start_y+70);
+			g.drawString("Start",help_x+80,help_y+70);
+			g.drawString("Quit",quit_x+80,quit_y+70);
+		
+		}
+		public void updateX(){
+		}
+}

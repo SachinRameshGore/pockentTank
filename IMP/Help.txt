@@ -1,0 +1,14 @@
+Angle:
+ Adjust the angle of your turret according to the new enemy Postion.
+Use '+','-' button to increment or decrement angle respectively,or click on angle button and control the angle with mouse
+
+Power:
+Adjust the Power level according to your Angle And distance between your enemy the Power level decides the launch velocity of Projectile
+Use '+','-' button to increment or decrement Power level  respectively.
+
+Weapons:
+Choose from set of weapons that yoy chose.
+Different weapons deal with Different damage and have different damage radius
+
+Fire:
+ Use the fire Weapon to launch your Projectile.

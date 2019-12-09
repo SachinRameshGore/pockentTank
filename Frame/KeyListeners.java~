@@ -1,0 +1,25 @@
+import java.awt.event.*;
+public class KeyListeners extends KeyAdapter{
+	
+	handler hand;
+	public KeyListeners(handler hand)
+	{
+		this.hand = hand;
+	}
+	public void keyPressed(KeyEvent E)
+	{
+		int key = E.getKeyCode();
+		
+		if(key == E.VK_RIGHT)
+		{
+			hand.player1.set_x_speed(2);
+		}
+		if(key == E.VK_LEFT)
+		{
+			
+				hand.player1.set_x_speed(-2);
+			
+		}
+	}
+
+}

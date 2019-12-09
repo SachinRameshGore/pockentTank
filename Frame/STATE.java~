@@ -1,0 +1,7 @@
+public enum STATES{
+
+		MENU
+		HELP,
+		GAME,
+		QUIT;
+}

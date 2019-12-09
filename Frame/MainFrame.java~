@@ -1,0 +1,18 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class MainFrame implements Button_Specifications{
+	JFrame frame;
+	public MainFrame(PocketTank tank){
+		frame = new JFrame("Tank");
+		frame.setSize(800,600);
+		frame.setVisible(true);
+		frame.add(tank);
+		tank.start();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+	}
+	public JFrame getFrame(){
+		return(this.frame);
+	}
+	
+}

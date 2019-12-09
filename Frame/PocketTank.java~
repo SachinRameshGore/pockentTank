@@ -1,0 +1,100 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.*;
+import java.awt.geom.*;
+import javax.imageio.*;
+import java.util.*;
+import java.io.*;	
+import java.util.*;
+public class PocketTank extends Canvas implements Runnable{
+	Thread T;
+	int x = 10;
+	int y = 10;
+	int xspeed = 1;
+	int yspeed = 0;
+	
+	Rectangle snake = new Rectangle(10*5,10*5,10,10);
+	Rectangle food = new Rectangle(500*5,150*5,10,10);
+	BufferedImage startImage;
+	KeyListeners keypress;
+	int scale = 5;
+	handler hand;
+	
+	
+
+
+	//	/exports/AG1/AG1
+	public PocketTank(){
+		T = new Thread(this);
+		hand = new handler();
+		hand.addTerrain();
+		addMouseListener(new MouseInput(hand));
+		addKeyListener(new KeyListeners(hand));
+		
+	}
+
+
+	/////////////////
+	public void run(){
+		
+		while(true){
+			try{
+			updateX();
+			}catch(Exception E){}
+			render();
+			clearScreen();
+			try{
+				T.sleep(10);
+			}catch(InterruptedException E){E.printStackTrace();}
+		}
+	}
+	public void updateX()throws NoninvertibleTransformException{
+		hand.update();
+
+		/*Point p = new Point(x,y);
+		if(p.distance(new Point((int)food.getX(),(int)food.getY())) == 0)
+		{
+			System.out.println("HIT");		
+		}
+		snake.setRect(x,y,10,10);*/
+	}
+	public void start(){
+		T.start();
+	}
+	public void stop(){
+		try{
+			T.join();
+		}catch(Exception E){E.printStackTrace();}
+	}
+	///////////////////
+
+	public void render(){
+		BufferStrategy B1 = this.getBufferStrategy();
+		if(B1 == null)
+		{
+			this.createBufferStrategy(3);
+			return;	
+		}
+		Graphics G = B1.getDrawGraphics();
+
+		
+		hand.render(G);
+		G.dispose();
+		B1.show();
+	}
+	
+	public void clearScreen(){
+		BufferStrategy B = this.getBufferStrategy();
+		if(B == null)
+		{
+			this.createBufferStrategy(3);
+			return;	
+		}
+		Graphics G = B.getDrawGraphics();
+		G.fillRect(0,0,800,600);
+	}
+	public static void main(String args[]){
+		PocketTank tank = new PocketTank();
+		MainFrame frame = new MainFrame(tank);		
+	}
+}

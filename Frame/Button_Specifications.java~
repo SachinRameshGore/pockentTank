@@ -1,0 +1,39 @@
+public interface Button_Specifications{
+
+		/**************This is for angle*******************/
+
+		public static int angle_label_x = 40+160-130;
+		public static int angle_label_y = 470+120-20;
+		
+
+		public static int angle_x = 50+16-130;
+		public static int angle_y = 410+120;
+
+		/******************This is for Fire ***************/
+
+
+
+		/****************This is for Start Up menu***************/
+			
+
+			public static int start_x = 300+160-190;
+			public static int start_y = 300+160-190;
+		
+
+			public static int help_x = 300+160-190;
+			public static int help_y = 100+120-50;
+			
+
+			public static int quit_x = 300+160-190;
+			public static int quit_y = 320+120-50;
+
+
+			public static int screen_width = 640+160;
+			public static int screen_height = 480+120;
+
+			public static int Width = 640+160;
+			public static Height = 350+120;
+
+	/***************************************************************/
+			
+}

@@ -1,0 +1,18 @@
+import java.awt.event.*;
+public class MouseInput extends MouseAdapter {
+	handler hand;
+	public MouseInput(handler hand){
+		this.hand = hand;
+	}
+	public void mousePressed(MouseEvent E)
+	{
+			int a,b;
+			a = E.getX();
+			b = E.getY();
+		if((a > hand.startMenu.Start.getMinX() && a < hand.startMenu.Start.getMaxX()) && (b > hand.startMenu.Start.getMinY() && b < hand.startMenu.Start.getMaxY()))
+			hand.state = States.GAME;
+
+		if((a > hand.startMenu.Quit.getMinX() && a < hand.startMenu.Quit.getMaxX()) && (b > hand.startMenu.Quit.getMinY() && b < hand.startMenu.Quit.getMaxY()))
+			hand.state = States.GAME;
+	}	
+}	

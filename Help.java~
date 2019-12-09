@@ -1,0 +1,16 @@
+import java.awt.*;
+import java.awt.geom.*;
+import java.awt.image.*;
+public class Help implements button_specifications{
+	public Help()
+	{
+		try{	
+			
+		}catch(Exception E){E.printStackTrace();}
+	}
+	public void render(Graphics G){
+		Graphics2D g = (Graphics2D)G;
+	}
+	public void update(){
+	}
+}

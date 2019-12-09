@@ -1,0 +1,52 @@
+package Main;
+import javax.swing.*;
+import java.awt.*;
+import javax.imageio.*;
+import java.util.*;
+import Frame.*;
+class PocketTank extends Canvas implements Runnable{
+	Thread T;
+	public PocketTank(){
+		T = new Thread(this);
+	}
+	/////////////////
+	public void run(){
+		while(true){
+			try{
+				T.sleep(20);
+			}catch(InterruptedException E){E.printStackTrace();}
+		}
+	}
+	public void start(){
+		T.start();
+	}
+	public void stop(){
+		try{
+			T.join();
+		}catch(Exception E){E.printStackTrace();}
+	}
+	///////////////////
+	public void render(){
+		BufferStrategy B1 = this.getBufferStrategy();
+		if(B1 == null)
+		{
+			this.createBufferStrategy(3);
+			return;	
+		}
+		Graphics G = B1.getDrawGraphics();
+	}
+	public void clearScreen(){
+		BufferStrategy B1 = this.getBufferStrategy();
+		if(B1 == null)
+		{
+			this.createBufferStrategy(3);
+			return;	
+		}
+		Graphics G = B1.getDrawGraphics();
+		G.fillrect(0,0,800,600);
+	}
+	public static void main(String args[]){
+		PocketTank tank = new PocketTank();
+		MainFrame frame = new MainFrame(tank);		
+	}
+}

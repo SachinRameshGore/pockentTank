@@ -1,0 +1,9 @@
+public enum TURN{
+
+
+	PLAYER1,
+	ANGLECHANGE,
+	EXPLOSION,
+	LOADING,
+	PLAYER2;
+}

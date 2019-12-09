@@ -1,0 +1,7 @@
+public enum States {
+	START,
+	HELP,
+	PAUSE,
+	MAIN,
+	END;
+}
